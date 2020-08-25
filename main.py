@@ -12,6 +12,6 @@ for idx in range(0,6):
     ranking_titles = soup.select(f"#ranking_10{idx} > ul > li > a")
     body_data = ""
     for idx,rank in enumerate(ranking_titles,1):
-        body_data += f'{idx}위 {rank.text}\n-{url+rank["href"]}\n'
+        body_data += f'●{idx}위 {rank.text}\n{url+rank["href"]}\n'
     data = head+body_data
     send(data)
