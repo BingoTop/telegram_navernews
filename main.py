@@ -11,12 +11,7 @@ for idx in range(0,6):
     head = head_title[idx]+"\n"
     ranking_titles = soup.select(f"#ranking_10{idx} > ul > li > a")
     body_data = ""
-    for rank in ranking_titles:
-        body_data += f'{url+rank["href"]}\n{rank.text}'
+    for idx,rank in enumerate(ranking_titles,1):
+        body_data += f'{idx}위 {rank.text}\n-{url+rank["href"]}'
     data = head+body_data
-    string_wall = "-"* 100
-    send(data+string_wall)
-    # for rank in ranking_titles:
-    #     print(rank["href"])
-    #     print(rank["title"])
-
+    send(data)
